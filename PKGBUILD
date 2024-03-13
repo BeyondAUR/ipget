@@ -13,7 +13,7 @@ license=('MIT')
 depends=('glibc')
 makedepends=('go')
 optdepends=('go-ipfs: to use full potential of IPFS network')
-source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/ipfs/${pkgname}/archive/refs/tags/v${pkgver}.tar.gz")
 sha256sums=('a9bffe36f23284fa691cca0bc85d1890782ca0c7bc69a25f9881b712914a96cb')
 
 build() {
