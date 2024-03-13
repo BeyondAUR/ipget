@@ -13,6 +13,7 @@ license=('MIT')
 depends=('glibc')
 makedepends=('go')
 optdepends=('go-ipfs: to use full potential of IPFS network')
+options=('strip' 'lto' '!debug')
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/ipfs/${pkgname}/archive/refs/tags/v${pkgver}.tar.gz")
 sha256sums=('a9bffe36f23284fa691cca0bc85d1890782ca0c7bc69a25f9881b712914a96cb')
 
@@ -22,7 +23,7 @@ build() {
   export CGO_CFLAGS="${CFLAGS}"
   export CGO_CXXFLAGS="${CXXFLAGS}"
   export CGO_LDFLAGS="${LDFLAGS}"
-  export GOFLAGS="-buildmode=pie -trimpath -ldflags='-linkmode=external -s -w' -mod=readonly -modcacherw"
+  export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external -ldflags=-s -ldflags=-w -mod=readonly -modcacherw"
   go build
 }
 
