@@ -29,7 +29,8 @@ build() {
 
 package() {
   cd "${pkgname}-${pkgver}"
-  install -Dm644 -t "${pkgdir}/usr/bin" ipget
+  mkdir -m755 -p "${pkgdir}/usr/bin"
+  install -Dm755 -t "${pkgdir}/usr/bin" ipget
   install -Dm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" LICENSE
 }
 
